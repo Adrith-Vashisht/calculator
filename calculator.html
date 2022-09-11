@@ -1,0 +1,106 @@
+<html>
+
+<head>
+    <title>Kal Kew Later | Your one Stop Calculator for iCloud.com
+    </title>
+    <style>
+        body {
+            background-color: rgb(0, 0, 0);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .keyingreds {
+            background-color: orange;
+        }
+
+        .ingreds {
+            background-color: rgb(56, 56, 56);
+            color: white;
+        }
+
+        .morekeys {
+            background-color: gray;
+        }
+
+        button {
+            border: none;
+            height: 40;
+            width: 90;
+        }
+
+        input {
+            text-align: right;
+
+
+        }
+
+        .longreds {
+            background-color: rgb(56, 56, 56);
+            height: 40;
+            width: 180;
+            color: white;
+        }
+    </style>
+    <script charset="UTF-8">
+        function input1(value) {
+            document.getElementById("sidebarof").value = value;
+            if (document.getElementById("op1") == 0) {
+                document.getElementById("op1").value = value;
+            }
+            if ((document.getElementById("op1") != 0) && (document.getElementById("op2") == 0)) {
+                document.getElementById("op2").value = value;
+            }
+        }
+        function opset(value) {
+            document.getElementById("op") = value;
+        }
+        function operationop() {
+            if (document.getElementById("op").value == "+") {
+                document.getElementById("sidebarof").value = document.getElementById("op1") + document.getElementById("op2");
+            }
+            if (document.getElementById("op").value == "-") {
+                document.getElementById("sidebarof").value = document.getElementById("op1") - document.getElementById("op2");
+            }
+            if (document.getElementById("op").value == "/") {
+                document.getElementById("sidebarof").value = document.getElementById("op1") / document.getElementById("op2");
+            }
+            if (document.getElementById("op").value == "*") {
+                document.getElementById("sidebarof").value = document.getElementById("op1") * document.getElementById("op2");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input id="sidebarof" type="text" placeholder="0" type="number"></input>
+    <input type="hidden" id="op"></input>
+    <input type="hidden" id="op1"></input>
+    <input type="hidden" id="op2"></input>
+
+    <br><br><br><br>
+    <button class="morekeys">C</button>
+    <button class="morekeys">+/-</button>
+    <button class="morekeys">%</button>
+    <button class="keyingreds" onclick='opset("/")'>÷</button>
+    <br><br>
+    <button class="ingreds" onclick="input1(7)">7</button>
+    <button class="ingreds" onclick="input1(8)">8</button>
+    <button class="ingreds" onclick="input1(9)">9</button>
+    <button class="keyingreds" onclick='opset("*")'>✕</button>
+    <br><br>
+    <button class="ingreds" onclick="input1(4)">4</button>
+    <button class="ingreds" onclick="input1(5)">5</button>
+    <button class="ingreds" onclick="input1(6)">6</button>
+    <button class="keyingreds" onclick='opset("-")'>-</button>
+    <br><br>
+    <button class="ingreds" onclick="input1(1)">1</button>
+    <button class="ingreds" onclick="input1(2)">2</button>
+    <button class="ingreds" onclick="input1(3)">3</button>
+    <button class="keyingreds" onclick='opset("+")'>+</button>
+    <br><br>
+    <button class="longreds" onclick="input1(0)">0</button>
+    <button class="ingreds">.</button>
+    <button class=" keyingreds" onclick="operationop()">=</button>
+</body>
+
+</html>
