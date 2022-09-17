@@ -9,6 +9,12 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
+        .icloudies {
+            background-color: white;
+            color: black;
+            border: none;
+        }
+
         .keyingreds {
             background-color: orange;
         }
@@ -42,40 +48,40 @@
         }
     </style>
     <script charset="UTF-8">
+        var num1;
+        var num2;
+        var isnum1set = false;
+        var op;
         function input1(value) {
             document.getElementById("sidebarof").value = value;
-            if (document.getElementById("op1") == 0) {
-                document.getElementById("op1").value = value;
-            }
-            if ((document.getElementById("op1") != 0) && (document.getElementById("op2") == 0)) {
-                document.getElementById("op2").value = value;
+            if (isnum1set == false) {
+                num1 = value;
+                isnum1set = true;
+            } else {
+                num2 = value;
             }
         }
         function opset(value) {
-            document.getElementById("op") = value;
+            op = value;
         }
         function operationop() {
-            if (document.getElementById("op").value == "+") {
-                document.getElementById("sidebarof").value = document.getElementById("op1") + document.getElementById("op2");
-            }
-            if (document.getElementById("op").value == "-") {
-                document.getElementById("sidebarof").value = document.getElementById("op1") - document.getElementById("op2");
-            }
-            if (document.getElementById("op").value == "/") {
-                document.getElementById("sidebarof").value = document.getElementById("op1") / document.getElementById("op2");
-            }
-            if (document.getElementById("op").value == "*") {
-                document.getElementById("sidebarof").value = document.getElementById("op1") * document.getElementById("op2");
-            }
-        }
+            var num3 = num1 + num2;
+            document.getElementById("sidebarof").value = num3;
+            isnum1set = false;
+        }  
     </script>
 </head>
 
 <body>
+    <details style="color:white;">
+        <summary>Go to iCloud</summary>
+        <form action="https://icloud.com/" method="get">
+            <input placeholder="Type a name of an apple app to launch it."></input>
+            <button type="submit">Enter</button>
+        </form>
+    </details>
     <input id="sidebarof" type="text" placeholder="0" type="number"></input>
-    <input type="hidden" id="op"></input>
-    <input type="hidden" id="op1"></input>
-    <input type="hidden" id="op2"></input>
+
 
     <br><br><br><br>
     <button class="morekeys">C</button>
